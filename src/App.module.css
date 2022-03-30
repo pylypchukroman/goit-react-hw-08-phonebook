@@ -1,0 +1,15 @@
+.App {
+  background-color: #fff;
+  border: 1px solid#212121;
+  border-radius: 30px;
+  padding: 10px;
+  margin: 0 auto;
+  width: 400px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+h2 {
+  text-align: center;
+}
+.title {
+  margin-bottom: 10px;
+}

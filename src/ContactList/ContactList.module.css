@@ -1,0 +1,35 @@
+.List {
+  padding: 0;
+  background-color: #fff;
+}
+.Item {
+  display: flex;
+  justify-content: space-between;
+  width: 386px;
+  border: 1px solid#212121;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 10px 5px;
+  align-items: center;
+  transition: transform 0.25s;
+}
+.Item:hover {
+  transform: scale(1.03);
+}
+
+.Item p {
+  margin: 0;
+  font-size: 14px;
+}
+.Item button {
+  width: 70px;
+  height: 25px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: transform 0.25s;
+}
+.Item button:hover {
+  background-color: red;
+  color: aliceblue;
+  border: red;
+  border-radius: 2px;
+}
