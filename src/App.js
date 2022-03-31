@@ -1,16 +1,14 @@
 import { useEffect, Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-//Components
 import AppBar from './components/AppBar/AppBar';
 import PrivateRoute from './components/RouteHelper/PrivateRout';
 import PublicRoute from './components/RouteHelper/PublicRout';
 import { getCurrentUser } from './redux/auth/authOperations';
 import Container from 'react-bootstrap/Container';
-//Styles
-// import './styles/styles.css';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import { Watch } from 'react-loader-spinner';
+import { Audio } from 'react-loader-spinner';
+import styles from './App.module.css';
 
 const HomeView = lazy(() =>
   import('./views/HomeView/HomeView' /* webpackChunkName: "home-page" */)
@@ -37,16 +35,14 @@ export default function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className={styles.main}>
       <Container>
         <AppBar />
-
         <Suspense
           fallback={
-            <Watch
-              className="Loader"
-              type="Hearts"
-              color="#c6538c"
+            <Audio
+              className={styles.Loader}
+              color="#212121"
               height={100}
               width={100}
             />
@@ -71,6 +67,6 @@ export default function App() {
           </Switch>
         </Suspense>
       </Container>
-    </>
+    </div>
   );
 }

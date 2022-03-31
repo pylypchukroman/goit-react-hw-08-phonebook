@@ -13,7 +13,7 @@ export default function AppBar() {
 
   return (
     <Navbar bg="light" variant="light">
-      <Container>
+      <Container className={styles.appBar_main}>
         <div className={styles.header}>
           <Navigation />
           {isLoggedIn ? <UserMenu /> : <AuthNav />}
