@@ -1,0 +1,13 @@
+.form {
+  width: 320px;
+}
+.register_view {
+  border: 1px solid #212121;
+  border-radius: 20px;
+  padding: 20px;
+  width: 500px;
+  margin: 0 auto;
+}
+.title {
+  margin-bottom: 30px;
+}

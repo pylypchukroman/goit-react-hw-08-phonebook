@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 400;
+  border: 1px solid blue;
+  border-radius: 10px;
+  width: 500px;
+  margin: 0 auto;
+}

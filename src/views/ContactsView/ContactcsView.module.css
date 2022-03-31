@@ -1,0 +1,10 @@
+.phonebook {
+  border: 1px solid#212121;
+  border-radius: 20px;
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.contacts_view_header {
+  margin-bottom: 15px;
+}

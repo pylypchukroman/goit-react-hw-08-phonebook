@@ -1,38 +1,43 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import * as contactsAPI from '../../utils/contactsAPI';
+import axios from 'axios';
+import {
+  addContactRequest,
+  addContactSuccess,
+  addContactError,
+  deleteContactRequest,
+  deleteContactSuccess,
+  deleteContactError,
+  fetchContactRequest,
+  fetchContactSuccess,
+  fetchContactError,
+} from './contactsActions.js';
 
-export const getContacts = createAsyncThunk(
-  'contacts/fetchContacts',
-  async (_, { rejectWithValue }) => {
-    try {
-      const newContact = await contactsAPI.fetchContacts();
-      return newContact;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
+export const fetchContacts = () => dispatch => {
+  dispatch(fetchContactRequest());
 
-export const postContact = createAsyncThunk(
-  'contacts/addContact',
-  async (contact, { rejectWithValue }) => {
-    try {
-      const newContact = await contactsAPI.addContact(contact);
-      return newContact;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
+  axios
+    .get('/contacts')
+    .then(({ data }) => dispatch(fetchContactSuccess(data)))
+    .catch(error => dispatch(fetchContactError(error.message)));
+};
 
-export const removeContact = createAsyncThunk(
-  'contacts/removeContact',
-  async (id, { rejectWithValue }) => {
-    try {
-      const removeContact = await contactsAPI.removeContact(id);
-      return removeContact;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
+export const addContact = (name, number) => dispatch => {
+  const contact = {
+    name,
+    number,
+  };
+
+  dispatch(addContactRequest());
+
+  axios
+    .post('/contacts', contact)
+    .then(({ data }) => dispatch(addContactSuccess(data)))
+    .catch(error => dispatch(addContactError(error.message)));
+};
+
+export const deleteContact = contactId => dispatch => {
+  dispatch(deleteContactRequest());
+  axios
+    .delete(`/contacts/${contactId}`)
+    .then(() => dispatch(deleteContactSuccess(contactId)))
+    .catch(error => dispatch(deleteContactError(error.message)));
+};

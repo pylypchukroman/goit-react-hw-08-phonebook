@@ -1,0 +1,21 @@
+.container {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid#212121;
+  border-radius: 20px;
+  width: 500px;
+  margin: 0 auto;
+}
+.title {
+  font-weight: 400;
+  font-size: 56;
+  text-align: center;
+}
+.text {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
